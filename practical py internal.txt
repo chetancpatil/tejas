@@ -1,0 +1,414 @@
+//1
+print("select your choice:")
+print("1.for loop")
+print("2.while loop")
+choice=int(input())
+if(choice==1):
+    for x in range(1,8,2):
+     print(x)
+elif(choice==2):
+    count=1;
+    while(count<8):
+     print(count)
+     count+=2;
+else:
+    print("ok")
+
+
+
+//2
+print("select your choice:")
+print("1.List")
+print("2.Dictionary")
+print("3.Tuple")
+choice= int(input())
+if(choice==1):
+    my_list=[1,2,3,'example',3.132]
+    print(my_list)
+    my_list.append([555,12])
+    print(my_list)
+    my_list.extend([234,'more_example'])
+    print(my_list)
+    my_list.insert(1,'inset_example')
+    del my_list[5]
+    print(my_list)
+    my_list.remove('example')
+    print(my_list)
+    a=my_list.pop(1)
+    print('popped element:',a,'list remaining:',my_list)
+    my_list.clear()
+    print(my_list)
+    my_list=[1,2,3,'example',3.132,10,30]
+    for element in my_list:
+        print(element)
+    print(my_list)
+    print(my_list[3])
+    print(my_list[0:2])
+    print(my_list[::-1])
+    my_list=[1,2,3,10,30,10]
+    print(len(my_list))
+    print(my_list.index(10))
+    print(my_list.count(10))
+    print(sorted(my_list))
+elif(choice==2):
+    my_dict={1:'python',2:'java'}
+    print(my_dict)
+    my_dict={'first':'python','second':'java'}
+    print(my_dict)
+    my_dict['second']='c++'
+    print(my_dict)
+    my_dict['third']='ruby'
+    print(my_dict)
+    my_dict={'first':'python','second':'java','third':'ruby'}
+    a=my_dict.pop('third')
+    print('values:',a)
+    print('dictionay:',my_dict)
+    b=my_dict.popitem()
+    print('key,value pair:',b)
+    print('dictionary',my_dict)
+    my_dict.clear()
+    print(my_dict)
+    my_dict={'first':'python','second':'java'}
+    print(my_dict['first'])
+    print(my_dict.get('second'))
+    my_dict={'first':'python','second':'java','third':'ruby'}
+    print(my_dict.keys())
+    print(my_dict.values())
+    print(my_dict.items())
+elif(choice==3):
+    my_tuple=(1,2,3)
+    print(my_tuple)
+    my_tuple2=(1,2,3,'edureka')
+    for x in my_tuple2:
+      print(x)
+      print(my_tuple2)
+      print(my_tuple2[0])
+      print(my_tuple2[:])
+      print(my_tuple2[3][4])
+      my_tuple=(1,2,3)
+      my_tuple=my_tuple+(4,5,6)
+      print(my_tuple)
+      my_tuple=(1,2,3,['hindi','python'])
+      my_tuple[3][0]='english'
+      print(my_tuple)
+      print(my_tuple.count(2))
+      print(my_tuple.index(['english','python']))
+else:
+      print("ok")
+
+
+
+
+//3
+total=0;
+def sum(arg1,arg2):
+    total=arg1 + arg2;
+    print("inside the function local total:",total)
+    return total;
+
+def factorial(x):
+    if x==1:
+      return 1
+    else:
+        return(x*factorial(x-1))
+    
+ 
+print("select you choice:")
+print("1.functions scoping")
+print("2.recursion")
+print("3.list mutability")
+choice=int(input())
+if(choice==1):
+ sum(10,20);
+ print("outside the function global total:",total)
+elif(choice==2):
+ num=4
+ print("the factorial of",num, "is",factorial(num))
+elif(choice==3):
+    my_list=[1,2,3,'example',3.132]
+    print(my_list)
+    my_list.append([555,12])
+    print(my_list)
+    my_list.extend([234,'more_example'])
+    print(my_list)
+    my_list.insert(1,'insert_example')
+    print(my_list)
+    del my_list[5]
+    print(my_list)
+    my_list.remove('example')
+    print(my_list)
+    a=my_list.pop(1)
+    print('popped element:',a,'list remaining:',my_list)
+    my_list.clear()
+    print(my_list)
+else:
+    print("ok")
+
+
+
+
+//4
+class parent:
+    
+    parentAttr=100
+    
+    def __init__ (self):
+    
+        print("Calling parent constructor")
+        
+    def parentMethod(self):
+        
+        print("calling parent method")
+        
+    def setAttr(self,attr):
+        
+        self.parentAttr=attr
+        
+    def getAttr(self):
+        
+        print("parent attribute:",self.parentAttr)
+        
+class Child(parent):
+    
+    def __init__(self):
+        
+        print("calling child constructor")
+        
+    def childMethod(self):
+        
+        print("calling child method")
+        
+
+c=Child()
+c.childMethod()
+c.parentMethod()
+c.setAttr(200)
+c.getAttr()
+
+
+
+
+//6
+import re
+txt1 = "The rain in Spain"
+x1= re.findall("ai",txt1)
+print(x1)
+
+txt2="The rain in Spain"
+x2= re.search("\s",txt2)
+print("The first while-space characher is located in possition:",x2.start())
+
+
+txt3="The rain in Spain"
+x3=re.split("\s",txt3)
+print(x3)
+
+
+txt4="The rain in Spain"
+x4=re.sub("\s","9",txt4)
+print(x4)
+
+
+txt5="The rainin Spain"
+x5=re.search("ai",txt5)
+print(x5)
+
+
+txt6="The rain in Spain"
+x6=re.search(r"\bS\w+",txt6)
+print(x6.group())
+
+
+
+//7
+def divide(x,y):
+    try:
+        result=x//y
+    except ZeroDivisionError:
+        print("Sorry! You are dividing by zero")
+    else:
+        print("Yeah! Your answer is:",result)
+    finally:
+        print("This is always executed")
+divide(3,2)
+divide(3,0)
+
+class MyError(Exception):
+    def __init__(self,value):
+        self.value=value
+    def __str__(self):
+        return(repr(self.value))
+try:
+    raise(MyError(3*2))
+except MyError as error:
+    print('A New Exception occurred:',error.value)
+x="hello"
+assert x =="goodbye",'x should be "hello"'
+
+
+
+
+
+//8
+try:
+    print(1 + '3')
+except Exception as e:
+    error_message = str(e)
+    print(error_message)
+    print(type(error_message))
+class LowAgeError(Exception):
+    def __init__(self):
+        pass
+    def __str__(self):
+        return 'The age must be greater than 18 years'
+class Employee:
+    def __init__(self, name, age):
+        self.name = name
+        if age < 18:
+            raise LowAgeError
+        else:
+            self.age = age
+    def display(self):
+        print('The name of the employee: ' + self.name + ', Age: ' + str(self.age) +' Years')
+try:
+    e1 = Employee('Subhas', 25)
+    e1.display()
+    e2 = Employee('Anupam', 12)
+    e1.display()
+except LowAgeError as e:
+    print('Error Occurred: ' + str(e))
+x = 10
+y = 0
+try:
+    print("outer try block")
+    try:
+        print("nested try block")
+        print(x / y)
+    except TypeError as te:
+        print("nested except block")
+        print(te)
+except ZeroDivisionError as ze:
+    print("outer except block")
+    print(ze)
+
+
+//9
+triangle=lambda m,n: 1/2*m*n
+res=triangle(34,24)
+print("Area of the trangle:",res)
+
+
+
+//10
+series = [23,45,57,39,1,3,95,3,8,85]
+result = filter (lambda m: m > 29, series)
+print('All the numbers greater than 29 in the series are :',list(result))
+
+from functools import reduce
+series=[23,5,1,7,45,9,38,65,3]
+sum=reduce(lambda m,n:m+n,series)
+print('The total sum of all the elements in the list is:',sum)
+
+
+
+//11
+Step1: Click on New-Text File
+Step2: Rename as module2.py
+Step3:Write following code
+def show(name):
+print("Hello",name)
+Step4: Click on New-Python3
+Step5: Rename as Assignment11
+Step6: Write following code
+import module2
+module2.show("Manoj")
+Step7: Run
+Output: - Hello Manoj
+
+
+
+//12
+from PIL import Image
+myImage=Image.open("D:\sai\[001828].jpg");
+myImage.show();
+
+
+
+//13
+
+    import pandas as pd
+df=pd.read_csv("emails.csv")
+df.head()
+df.tail()
+
+
+print(df.loc[1])
+print(df.info())
+
+//14
+from tkinter import*
+import tkinter
+def helloCallBack():
+    print("Name=",t1.get())
+    i=radio.get()
+    i=radio.get()
+    if i ==1:
+        print("Gender=Male")
+    else:
+        print("Gender=Femel")
+    j=chk1.get()
+    k=chk2.get()
+    l=chk3.get()
+    str=""
+    if j==1:
+        str=str+""+"Red"
+    if k==2:
+        str=str+""+"Green"
+    if l==3:
+        str=str+""+"Blue"
+    print("Color=",str)
+    for i in lb1.curselection():
+        print(lb1.get(i))
+        
+base=Tk()
+base.geometry('600x600')
+base.title("Registraintion Form")
+l1=Label(base,text="Enter Name",width=20,font=("bold",10))
+l1.place(x=90,y=55)
+t1=Entry(base)
+t1.place(x=220,y=55)
+
+
+radio=IntVar()
+l2=Label(base,text="Select Gender",width=20,font=("bold",10))
+l2.place(x=94,y=93)
+r1=Radiobutton(base,text="Male",value=1,variable=radio)
+r1.place(x=220,y=93)
+r2=Radiobutton(base,text="Female",value=2,variable=radio)
+r2.place(x=280,y=93)
+
+
+l3=Label(base,text="Select Class",width=20,font=("bold",10))
+l3.place(x=90,y=123)
+lb1=Listbox(base)
+lb1.insert(1,"MCA-I")
+lb1.insert(2,"MCA-II")
+lb1.insert(3,"MCA-III")
+lb1.place(x=230,y=123)
+chk1=IntVar()
+chk2=IntVar()
+chk3=IntVar()
+l4=Label(base,text="Select color",width=20,font=("bold",10))
+l4.place(x=90,y=300)
+c1=Checkbutton(base,text="Red",width=20,onvalue=1,variable=chk1)
+c1.place(x=220,y=300)
+c2=Checkbutton(base,text="Green",width=20,onvalue=2,variable=chk2)
+c2.place(x=340,y=300)
+c3=Checkbutton(base,text="Blue",width=20,onvalue=3,variable=chk3)
+c3.place(x=460,y=300)
+
+b1=Button(base,text="Click",command=helloCallBack)
+b1.place(x=190,y=380)
+base.mainloop()
+
+
